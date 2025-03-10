@@ -10,8 +10,8 @@ Resources:
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t3.micro
-      ImageId: ami-12345678
+      InstanceType: t2.micro
+      ImageId: ami-08b5b3a93ed654d19
       NetworkInterfaces:
         - AssociatePublicIpAddress: true
           SubnetId: !ImportValue VPCID
