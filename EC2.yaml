@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Creates an EC2 instance inside an existing VPC
+
+Parameters:
+  VPCID:
+    Type: String
+    Description: The ID of the VPC where EC2 should be deployed
+
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.micro
+      ImageId: ami-12345678
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          SubnetId: !ImportValue VPCID
